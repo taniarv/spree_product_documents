@@ -1,0 +1,15 @@
+es:
+  activerecord:
+    attributes:
+      spree/document:
+        attachment_content_type: Tipo de documento
+        attachment: Documento
+  spree:
+    document: Documento
+    document_url: Enlace al documento
+    back_to_documents_list: Volver a la lista de documentos
+    no_documents_found: No se han encontrado documentos
+    new_document: Nuevo documento
+    admin:
+      tab:
+        documents: Documentos

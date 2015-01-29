@@ -1,0 +1,13 @@
+<%= form_for [:admin, @product, @document], :html => { :multipart => true } do |f| %>
+  <fieldset data-hook="new_document">
+    <legend align="center"><%= Spree.t(:new_document) %></legend>
+
+      <%= render :partial => 'form', :locals => { :f => f } %>
+    
+      <div class="form-buttons filter-actions actions" data-hook="buttons">
+        <%= button Spree.t('actions.update'), 'refresh' %>
+        <span class="or"><%= Spree.t(:or) %></span>
+        <%= link_to_with_icon 'remove', Spree.t('actions.cancel'), admin_product_documents_url(@product), :id => 'cancel_link', :class => 'button' %>
+      </div>
+  </fieldset>
+<% end %>

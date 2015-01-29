@@ -1,0 +1,9 @@
+en:
+  spree:
+    document: Document
+    back_to_documents_list: Back to documents list
+    no_documents_found: No documents found
+    new_document: New document
+    admin:
+      tab:
+        documents: Documents
