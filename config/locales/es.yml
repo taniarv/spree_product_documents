@@ -1,5 +1,9 @@
 es:
   activerecord:
+    models:
+      spree/document:
+        one: Documento
+        other: Documentos
     attributes:
       spree/document:
         attachment_content_type: Tipo de documento

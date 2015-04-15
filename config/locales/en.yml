@@ -1,6 +1,16 @@
 en:
+  activerecord:
+    models:
+      spree/document:
+        one: Document
+        other: Documents
+    attributes:
+      spree/document:
+        attachment_content_type: Document type
+        attachment: Document
   spree:
     document: Document
+    document_url: Document URL
     back_to_documents_list: Back to documents list
     no_documents_found: No documents found
     new_document: New document
