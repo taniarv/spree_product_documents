@@ -1,6 +1,8 @@
 SpreeProductDocuments
 =====================
 
+NOW support for spree_core-4.X and spree_backend-4.X
+
 Spree_product_documents is an Spree extension to attach documents related to a Product. Spree::Document class inherits from Spree::Resource and use spree_assets table, so no additional tables or assets are required. 
 
 This extension is heavily inspired in https://github.com/mosaic/spree_product_documents but has been adapted in order to work with Spree 2.4-stable branch. 

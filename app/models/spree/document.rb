@@ -16,7 +16,6 @@ module Spree
 
     before_post_process :skip_thumbnail_creation
 
-
     # if there are errors from the plugin, then add a more meaningful message
     def no_attachment_errors
       unless attachment.errors.empty?
