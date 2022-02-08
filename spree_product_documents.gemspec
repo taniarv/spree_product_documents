@@ -17,4 +17,6 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'spree_core', '~> 4'
   s.add_dependency 'spree_backend', '~> 4'
+
+  s.add_development_dependency 'spree_dev_tools'
 end

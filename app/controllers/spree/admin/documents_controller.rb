@@ -1,6 +1,8 @@
 module Spree
   module Admin
     class DocumentsController < ResourceController
+      belongs_to 'spree/product', find_by: :slug
+
       before_action :load_data
 
       create.before :set_viewable

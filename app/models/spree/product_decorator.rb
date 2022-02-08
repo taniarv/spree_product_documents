@@ -7,6 +7,7 @@ module Spree
       base.has_many :variant_documents, -> { order(:position) }, source: :documents, through: :variants_including_master
     end
   end
+
 end
 
-::Spree::Product.prepend Spree::ProductDecorator if ::Spree::Product.included_modules.exclude?(Spree::ProductDecorator)
+::Spree::Product.prepend(Spree::ProductDecorator)

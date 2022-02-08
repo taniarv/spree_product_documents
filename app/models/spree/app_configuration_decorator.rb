@@ -6,4 +6,4 @@ module Spree
   end
 end
 
-::Spree::AppConfiguration.prepend Spree::AppConfigurationDecorator if ::Spree::AppConfiguration.included_modules.exclude?(Spree::AppConfigurationDecorator)
+::Spree::AppConfiguration.prepend(Spree::AppConfigurationDecorator)
