@@ -6,7 +6,7 @@ Deface::Override.new(
   text: <<-HTML
       <% if can?(:admin, Spree::Document) && !@product.deleted? %>
       <li>
-        <%= link_to_with_icon 'file', I18n.t('spree.admin.tab.documents'), admin_product_documents_path(@product), class: "\#\{'active' if current == 'Documents'\} nav-link" %>
+        <%= link_to_with_icon 'file', I18n.t('spree.admin.tab.documents'), admin_product_documents_path(@product), class: "\#\{'active' if current == :documents\} nav-link" %>
       </li>
       <% end %>
     HTML
