@@ -13,7 +13,7 @@
       <div class="form-group">
         <div data-hook="thumbnail" class="col-12 col-lg-3 text-center">
           <%= f.label Spree.t(:thumbnail) %>
-          <%= link_to @document.attachment.filename.to_s, main_app.rails_blob_url(@document.attachment) if document.attachment.attached? %>
+          <%= link_to @document.attachment.filename.to_s, main_app.rails_blob_url(@document.attachment) if @document.attachment.attached? %>
         </div>
         <div class="col-12 col-lg-9">
           <%= render partial: 'form', locals: { f: f } %>
