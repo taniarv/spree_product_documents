@@ -1,6 +1,6 @@
 module Spree
   class Document < Asset
-    ALLOWED_CONTENT_TYPES = Spree::Config[:allowed_document_content_types]
+    ALLOWED_CONTENT_TYPES = Spree::ProductDocumentsConfiguration[:allowed_document_content_types]
 
      # active_storage
     has_one_attached :attachment
