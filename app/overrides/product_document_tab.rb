@@ -9,7 +9,7 @@ Deface::Override.new(
         <%= link_to_with_icon 'file',
           I18n.t('spree.admin.tab.documents'),
           admin_product_documents_path(@product),
-          class: 'nav-link #{\"active\" if controller_name.to_sym.eql?(:documents)}' %>
+          class: 'nav-link #{"active" if controller_name.to_sym.eql?(:documents)}' %>
       </li>
     <% end %>
   "
