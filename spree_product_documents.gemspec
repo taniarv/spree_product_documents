@@ -2,7 +2,7 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_product_documents'
-  s.version     = '4.0.4.2'
+  s.version     = '4.0.5'
   s.summary     = 'Add documents assets to products'
   s.description = 'Currently supports PDF and ZIP files'
   s.required_ruby_version = '>= 1.9.3'
