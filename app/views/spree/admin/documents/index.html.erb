@@ -30,12 +30,12 @@
       <% (@product.variant_documents).each do |document| %>
         <tr id="<%= spree_dom_id document %>" data-hook="documents_row">
           <td class="move-handle text-center">
-            <% if can? :edit, image %>
+            <% if can? :edit, document %>
               <%= svg_icon name: "sort.svg", width: '18', height: '18' %>
             <% end %>
           </td>
-          <td class="image">
-            <div class="admin-product-image-container small-img">
+          <td class="document">
+            <div class="admin-product-document-container small-img">
               <!-- paperclip -->
               <%# link_to document.attachment_file_name, document.attachment.url(:product) %>
               <!-- activestorage -->
