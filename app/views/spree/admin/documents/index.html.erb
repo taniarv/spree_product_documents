@@ -39,7 +39,7 @@
               <!-- paperclip -->
               <%# link_to document.attachment_file_name, document.attachment.url(:product) %>
               <!-- activestorage -->
-              <%= link_to document.attachment.filename.to_s, main_app.rails_blob_url(document.attachment) %>
+              <%= link_to document.attachment.filename.to_s, main_app.rails_blob_url(document.attachment) if document.attachment.attached? %>
             </div>
           </td>
           <% if has_variants %>
