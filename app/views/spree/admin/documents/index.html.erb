@@ -18,7 +18,7 @@
     <thead>
       <tr data-hook="documents_header">
         <th colspan="2"><%= Spree.t(:document_url) %></th>
-        <% if has_variants? %>
+        <% if has_variants %>
           <th><%= Spree::Variant.model_name.human %></th>
         <% end %>
         <th><%= Spree.t(:alt_text) %></th>
