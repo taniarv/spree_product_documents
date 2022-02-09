@@ -1,28 +1,30 @@
-<%= render :partial => 'spree/admin/shared/sub_menu/product' %>
+<%= render partial: 'spree/admin/shared/product_tabs', locals: { current: :documents } %>
 
-<%= render :partial => 'spree/admin/shared/product_tabs', :locals => { :current => 'Documents' } %>
+<%= render partial: 'spree/admin/shared/error_messages', locals: { target: @document } %>
 
-<%= render :partial => 'spree/shared/error_messages', :locals => { :target => @document } %>
-
-<% content_for :page_actions do %>
-  <%= button_link_to Spree.t(:back_to_documents_list), admin_product_documents_url(@product), :icon => 'arrow-left' %>
-<% end %>
-
-<%= form_for [:admin, @product, @document], :html => { :multipart => true } do |f| %>
-  <fieldset data-hook="edit_document">
-    <legend align="center"><%= @document.attachment_file_name%></legend>
-    <div data-hook="thumbnail" class="field alpha three columns align-center">
-      <%= f.label Spree.t(:document) %><br>
-      <%= link_to @document.attachment.url, @document.attachment.url(:product) %>
+<%= form_for [:admin, @product, @document], html: { multipart: true } do |f| %>
+  <div data-hook="edit_document" class="card mb-3">
+    <div class="card-header">
+      <h1 class="card-title mb-0 h5">
+        <%= @document.attachment.filename.to_s %>
+      </h1>
     </div>
-    <div class="nine columns omega">
-      <%= render :partial => 'form', :locals => { :f => f } %>  
+    <div class="card-body">
+      <div class="form-group">
+        <div data-hook="thumbnail" class="col-12 col-lg-3 text-center">
+          <%= f.label Spree.t(:thumbnail) %>
+          <%= link_to @document.attachment.filename.to_s, main_app.rails_blob_url(@document.attachment) %>
+        </div>
+        <div class="col-12 col-lg-9">
+          <%= render partial: 'form', locals: { f: f } %>
+        </div>
+
+        <div class="form-actions" data-hook="buttons">
+          <%= button Spree.t('actions.update'), 'save.svg' %>
+          <span class="or"><%= Spree.t(:or) %></span>
+          <%= button_link_to Spree.t('actions.cancel'), spree.admin_product_documents_url(@product), id: 'cancel_link', icon: 'cancel.svg' %>
+        </div>
+      </div>
     </div>
-    <div class="clear"></div>
-    <div class="form-buttons filter-actions actions" data-hook="buttons">
-      <%= button Spree.t('actions.update'), 'refresh' %>
-      <span class="or"><%= Spree.t(:or) %></span>
-      <%= link_to Spree.t('actions.cancel'), admin_product_documents_url(@product), :id => 'cancel_link', :class => 'button' %>
-    </div>
-  </fieldset>
+  </div>
 <% end %>

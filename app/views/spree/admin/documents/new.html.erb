@@ -1,17 +1,19 @@
-<%= render :partial => 'spree/admin/shared/sub_menu/product' %>
+<%= render partial: 'spree/admin/shared/product_tabs', locals: { current: :documents } %>
 
-<%= render :partial => 'spree/admin/shared/product_tabs', :locals => { :current => 'Documents' } %>
+<%= render partial: 'spree/admin/shared/error_messages', locals: { target: @object } %>
 
-<%= form_for [:admin, @product, @document], :html => { :multipart => true } do |f| %>
+<% content_for :page_title do %>
+  <%= Spree.t(:new_document) %>
+<% end %>
+
+<%= form_for [:admin, @product, @document], html: { multipart: true } do |f| %>
   <fieldset data-hook="new_document">
-    <legend align="center"><%= Spree.t(:new_document) %></legend>
+    <%= render partial: 'form', locals: { f: f } %>
 
-      <%= render :partial => 'form', :locals => { :f => f } %>
-    
-      <div class="form-actions" data-hook="buttons">
-        <%= button Spree.t('actions.update'), 'refresh' %>
-        <span class="or"><%= Spree.t(:or) %></span>
-        <%= button_link_to Spree.t('actions.cancel'), spree.admin_product_documents_url(@product), icon: 'delete', id: 'cancel_link' %>
-      </div>
+    <div class="form-actions" data-hook="buttons">
+      <%= button Spree.t('actions.create'), 'save.svg' %>
+      <span class="or"><%= Spree.t(:or) %></span>
+      <%= button_link_to Spree.t('actions.cancel'), spree.admin_product_documents_url(@product), icon: 'delete.svg', id: 'cancel_link' %>
+    </div>
   </fieldset>
 <% end %>
