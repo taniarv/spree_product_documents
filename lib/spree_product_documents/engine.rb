@@ -3,6 +3,10 @@ module SpreeProductDocuments
     require 'spree/core'
     isolate_namespace Spree
     engine_name 'spree_product_documents'
+
+    initializer 'spree.spree_product_documents.preferences', after: 'spree.environment' do |_app|
+      Spree::ProductDocumentsConfiguration = Spree::SpreeProductDocumentsConfiguration.new
+    end
     
     # use rspec for tests
     config.generators do |g|

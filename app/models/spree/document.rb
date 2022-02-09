@@ -1,14 +1,20 @@
 module Spree
   class Document < Asset
-    validate :no_attachment_errors
+    ALLOWED_CONTENT_TYPES = Spree::Config[:allowed_document_content_types]
 
-    has_attached_file :attachment,
+     # active_storage
+    has_one_attached :attachment
+    validates :attachment, presence: true, file_content_type: { allow: ALLOWED_CONTENT_TYPES }
+
+    
+    # TODELETE: paperclip
+    has_attached_file :old_attachment,
                       default_style: :product,
                       url: '/spree/products/:id/:basename.:extension',
                       path: ':rails_root/public/spree/products/:id/:basename.:extension',
                       convert_options: { all: '-strip -auto-orient -colorspace sRGB' }
-
-    ALLOWED_CONTENT_TYPES = Spree::Config[:allowed_document_content_types]     
+    validates_attachment :old_attachment, presence: true, content_type: { content_type:  ALLOWED_CONTENT_TYPES}
+    validate :no_attachment_errors
 
     validates_attachment :attachment,
       :presence => true,
